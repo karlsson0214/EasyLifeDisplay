@@ -7,11 +7,19 @@ using EasyMonoGame;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace EasyDemoEnemy
+namespace EasyDemoEnemyLife
 {
     internal class Crab : Actor
     {
         private bool isDead = false;
+        private int lifes;
+        private List<Life> lifeList = new List<Life>();
+
+        public Crab(List<Life> lifeList)
+        {
+            this.lifeList = lifeList;
+            lifes = lifeList.Count;
+        }
 
         public bool IsDead 
         { 
@@ -44,8 +52,20 @@ namespace EasyDemoEnemy
 
             if (IsTouching(typeof(Lobster)))
             {
-                World.ShowText("Game Over", 400, 300);
-                isDead = true;
+                lifes -= 1;
+                if (lifes <= 0)
+                {
+                    World.ShowText("Game Over", 400, 300);
+                    isDead = true;
+                }
+                else
+                {
+                    Life life = lifeList[lifes];
+                    World.RemoveActor(life);
+                    EasyGame.Instance.ActiveWorld = new MyWorld(lifes);
+                }
+                
+                
             }
         }
     }
