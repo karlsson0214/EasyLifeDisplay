@@ -53,6 +53,8 @@ namespace EasyDemoEnemyLife
             if (IsTouching(typeof(Lobster)))
             {
                 lifes -= 1;
+                Life life = lifeList[lifes];
+                World.RemoveActor(life);
                 if (lifes <= 0)
                 {
                     World.ShowText("Game Over", 400, 300);
@@ -60,8 +62,7 @@ namespace EasyDemoEnemyLife
                 }
                 else
                 {
-                    Life life = lifeList[lifes];
-                    World.RemoveActor(life);
+                    
                     EasyGame.Instance.ActiveWorld = new MyWorld(lifes);
                 }
                 
