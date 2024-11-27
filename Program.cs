@@ -1,5 +1,5 @@
 ﻿using EasyMonoGame;
-using EasyDemoEnemyLife; // The namespace of your game.
+using EasyLifeDisplay; // The namespace of your game.
 // Set starting world.
 EasyGame.Instance.ActiveWorld = new MyWorld(3);
 // Run the game.

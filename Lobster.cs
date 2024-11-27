@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EasyMonoGame;
 using Microsoft.Xna.Framework;
 
-namespace EasyDemoEnemyLife
+namespace EasyLifeDisplay
 {
     internal class Lobster : Actor
     {
